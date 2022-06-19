@@ -1,4 +1,13 @@
+
+
 # introduction to programming with python and java specialization 
+
+# MCIT 方法论
+
+1. 直接一个一个vedio按部就班地看下来，不要快进不要跳
+2. 下载module resource 时，只要下载handouts就够了、
+3. 把视频中所有出现过的代码，特别是coding demonstration中的，全部自己敲一遍
+4. quiz就是考语文，assignment难度一般
 
 # 单词
 
@@ -264,7 +273,16 @@ def main():
 
 if __name__ == '__main__':
     main()
-
+# return tuple containing max and min of list
+def max_and_min(lst):
+    return(max(lst), min(lst))
+def main():
+    list1 = [1, 2, 3, 4, 5]
+    max, min = max_and_min(list1)
+    print(max, min)
+if __name__ == "__main__":
+    main()
+    
 ```
 
 
@@ -713,4 +731,1131 @@ list.insert(2, 'insert item') #将在第三个位置插入insert item
 list1 + list2
 
 list1 * 3
+
+list-slice : list[start(included):end(not included)]   比如my_list[2:5]或者mylist[2:]直接到最后或者mylist[:]直接全部
+
+copy_my_list = my_list[:]
+
+name.index('')
+
+- string.capitalize() – capitalizes first letter of string
+- string.startswith(prefix) – determines if string starts with prefix 
+- string.endswith(suffix) – determines if string ends with suffix 
+- string.isupper() – determines if all characters in the string are uppercase 
+- string.islower() – determines if all characters in the string are lowercase 
+- string.find(str) – determines if str occurs in string
+- string.index(str) – determines index of str in string 
+- *i love pythonstring.replace(old, new) – replaces all occurrences of old in string with new 
+- string.strip() – trims whitespace from beginning and end of string 
+- string.upper() - returns uppercased string from given string 
+- string.lower() - returns lowercased string from given string
+
+string.split(',')
+
+colors = ','.join(colors_list)
+
+```python
+#here is a string with my favorite restaurant
+my_restaurant_choice = 'Mcdonalds'
+
+#convert the string to a list
+my_restaurant_choice_list = list(my_restaurant_choice)
+#update the third item in the list
+my_restaurant_choice_list[2] = 'D'
+#covert the list back to a string
+my_restaurant_choice = ''.join(my_restaurant_choice_list)
+
+print(my_restaurant_choice)
+```
+
+### tuples
+
+tuple = ('a', 'b', 'c')
+
+tuple = 'a', 'b', 'c'
+
+tuple = tuple("abc") 会转化成单个item
+
+### sets
+
+a set is an unordered collection
+
+the order doesn't matter and can't be specified
+
+does not allow repeated elements
+
+are mutable
+
+fruit = {'apple', 'orange', 'banana'}
+
+
+
+a = 'abcncnijdsifjoldjfl'
+
+a_set = set(a)
+
+
+
+a = [1,2,3,4,5]
+
+a_set = setr(a)
+
+empty_set = set()
+
+```python
+#create a set from a string with the set function
+a = 'abracadabra'
+a_set = set(a)
+
+#create a set from a list with the set function
+b = [1, 2, 1, 3, 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 1, 9, 1, 10]
+b_set = set(b)
+
+#iterate over a_set
+for c in a_set:
+    print(c, end = ' ')
+#iterate over b_set
+for n in b_set:
+    print(n, end = ' ')
+
+print('')
+
+#add to a_set
+a_set.add('c')
+print(a_set)
+
+#remove from b_set
+b_set.remove(10)
+print(b_set)
+```
+
+### homework 3
+
+```python
+def concatenate(strings):
+    """
+    Concatenates the given list of strings into a single string.
+    Returns the single string.
+    If the given list is empty, returns an empty string.
+
+    For example:
+    - If we call concatenate(["a","b","c"]), we'll get "abc" in return
+    - If we call concatenate([]), we'll get "" in return
+
+    Hint(s):
+    - Remember, you can create a single string from a list of multiple strings by using the join() function
+    """
+    # your code here
+    single_string = ''.join(strings)
+    return single_string
+
+def all_but_last(seq):
+    """
+    Returns a new list containing all but the last element in the given list.
+    If the list is empty, returns None.
+
+    For example:
+    - If we call all_but_last([1,2,3,4,5]), we'll get [1,2,3,4] in return
+    - If we call all_but_last(["a","d",1,3,4,None]), we'll get ["a","d",1,3,4] in return
+    - If we call all_but_last([]), we'll get None in return
+    """
+    # your code here
+    if seq == []:
+        return None
+    else:
+        seq.pop()
+        return seq
+    
+def remove_duplicates(lst):
+    """
+    Returns the given list without duplicates.
+    The order of the returned list doesn't matter.
+
+    For example:
+    - If we call remove_duplicates([1,2,1,3,4]), we'll get [1,2,3,4] in return
+    - If we call remove_duplicates([]), we'll get [] in return
+
+    Hint(s):
+    - Remember, you can create a set from a string, which will remove the duplicate elements
+    """
+    
+    # your code here
+    removed_list = []
+    if lst == []:
+        return []
+    else:
+        a = set(lst)
+        for x in a:
+            removed_list.append(x)
+        return removed_list
+
+def reverse_word(word):
+    """
+    Reverses the order of the characters in the given word.
+
+    For example:
+    - If we call reverse_word("abcde"), we'll get "edcba" in return
+    - If we call reverse_word("a b c d e"), we'll get "e d c b a" in return
+    - If we call reverse_word("a  b"), we'll get "b  a" in return
+    - If we call reverse_word(""), we'll get "" in return
+
+    Hint(s):
+    - You can iterate over a word in reverse and access each character
+    """
+    
+    # your code here
+    n = len(word)
+    reverse = ''
+    for i in range(n - 1, -1, -1):
+        reverse += word[i]
+    return reverse
+
+def divisors(n):
+    """
+    Returns a list with all divisors of the given number n.
+    As a reminder, a divisor is a number that evenly divides another number.
+    The returned list should include 1 and the given number n itself.
+    The order of the returned list doesn't matter.
+
+    For example:
+    - If we call divisors(10), we'll get [1,2,5,10] in return
+    - If we call divisors(1), we'll get [1] in return
+    """
+    # your code here
+    divisors = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            divisors.append(i)
+    return divisors
+
+def capitalize_or_join_words(sentence):
+    """
+    If the given sentence starts with *, capitalizes the first and last letters of each word in the sentence,
+    and returns the sentence without *.
+    Else, joins all the words in the given sentence, separating them with a comma, and returns the result.
+
+    For example:
+    - If we call capitalize_or_join_words("*i love python"), we'll get "I LovE PythoN" in return.
+    - If we call capitalize_or_join_words("i love python"), we'll get "i,love,python" in return.
+    - If we call capitalize_or_join_words("i love    python  "), we'll get "i,love,python" in return.
+
+    Hint(s):
+    - The startswith() function checks whether a string starts with a particualr character
+    - The capitalize() function capitalizes the first letter of a string
+    - The upper() function converts all lowercase characters in a string to uppercase
+    - The join() function creates a single string from a list of multiple strings
+    """
+    # your code here
+    if sentence.startswith("*") == True:
+        sentence = sentence.replace("*", "")
+        sentence = sentence.title()
+        result = ''
+        for word in sentence.split():
+            result += word[:-1] + word[-1].upper() + " "
+        return result[:-1]
+    else:
+        s = sentence.split()
+        joined_sentence = ",".join(s)
+        return joined_sentence
+    
+def move_zero(lst):
+    """
+    Given a list of integers, moves all non-zero numbers to the beginning of the list and
+    moves all zeros to the end of the list.  This function returns nothing and changes the given list itself.
+
+    For example:
+    - After calling move_zero([0,1,0,2,0,3,0,4]), the given list should be [1,2,3,4,0,0,0,0] and the function returns nothing
+    - After calling move_zero([0,1,2,0,1]), the given list should be [1,2,1,0,0] and the function returns nothing
+    - After calling move_zero([1,2,3,4,5,6,7,8]), the given list should be [1,2,3,4,5,6,7,8] and the function returns nothing
+    - After calling move_zero([]), the given list should be [] and the function returns nothing
+    """
+    # your code here
+    non_zero = []
+    only_zero = []
+
+    for number in lst:
+        if number != 0:
+            non_zero.append(number)
+        else:
+            only_zero.append(number)
+    given_list = non_zero + only_zero
+    
+    for i in range(0, len(given_list)):
+        lst[i] = given_list[i]
+    
+    return
+
+def main():
+    """
+    Calls all the functions above to see whether they've been implemented correctly.
+    """
+
+    # test concatenate
+    print("test concatenate")
+    word = concatenate(["b", "e", "a", "t", "l", "e", "s"])
+    print(word == "beatles")
+    print("=" * 50)
+
+    # test all_but_last
+    print("test all_but_last")
+    seq = all_but_last(["john", "paul", "george", "ringo", "tommy"])
+    print(seq == ["john", "paul", "george", "ringo"])
+    print("=" * 50)
+
+    # test remove_duplicates
+    print("test remove_duplicates")
+    res = remove_duplicates([1, 3, 4, 2, 1])
+    print(res == [1, 3, 4, 2])
+    print("=" * 50)
+
+    # test reverse_word
+    print("test reverse_word")
+    res = reverse_word("alphabet")
+    print(res == "tebahpla")
+    print("=" * 50)
+
+    # test divisors
+    print("test divisors")
+    res = divisors(120)
+    print(set(res) == set([1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24, 30, 40, 60, 120]))
+    print("=" * 50)
+
+    # test capitalize_or_join_words
+    print("test capitalize_or_join_words")
+    print("Result for String Start With *: ")
+    # Should return "I LovE CodinG AnD I'M HavinG FuN"
+    res = capitalize_or_join_words("*i love coding and i'm having fun")
+    print(res == "I LovE CodinG AnD I'M HavinG FuN")
+
+    print("Result for Other String: ")
+    # Should print "I,love,coding,and,I'm,having,fun"
+    res = capitalize_or_join_words("I love coding and I'm having fun")
+    print(res == "I,love,coding,and,I'm,having,fun")
+    print("=" * 50)
+
+    # test move_zero
+    print("test move_zero")
+    lst = [0, 1, 0, 2, 0, 3, 4, 0]
+    print("Before move,the list looks like\n", lst)
+    move_zero(lst)
+    print("After move,the list looks like\n", lst)
+    print("=" * 50)
+
+#This will automatically run the main function in your program
+#Don't change this
+if __name__ == '__main__':
+    main()
+```
+
+## week 4 data structure: dictionaries / external files
+
+### dictionaries
+
+A dictionary (dict) is another way to store data, like a list or set, but as unordered key-value pairs.
+
+To create a dict, use comma separated key:value pairs, in between curly braces {}
+
+Dictionaries are mutable, so once defined, elements can be changed
+
+```python
+person = {'name': 'Brandon', "age": 45, 'height': 6 * 5 +2}
+print(type(person))
+print(person['name'])
+print(person.get("name"))
+print(person.get("country", "AAA")) # 如果country这个key不存在，那么会返回AAA
+
+person = {'name': 'Brandon', "age": 45, 'height': 6 * 5 +2}
+print(type(person))
+print(person['name'])
+print(person.get("name"))
+print(person.get("country", "AAA"))
+print(person["age"])
+
+"""change the elements in the dictionary"""
+person["name"] = "lechi"
+person['age'] += 1
+person["college"] = "ZJU"
+print(person["name"])
+print(person.get("age"))
+print(person.get("college"))
+print("college" in person)
+del person["college"]
+print(person)
+```
+
+```python
+# crreate dictionaries for students
+billy = {
+    'name' : 'Billy',
+    'grades': [1, 2, 3, 4, 5],
+    'attendance': [True, True, False]
+}
+
+sarah = {
+    'name' : 'Sarah',
+    'grades': [2, 3, 4, 5, 6],
+    'attendance': [False, False, False]
+}
+
+ben = {
+    'name': "Ben",
+    'grades': [2, 3, 4, 5, 6],
+    'attendance': [False, True, True]
+}
+
+students = {'1': billy, '2': sarah, '3':ben}
+
+#get number of students
+print(len(students))
+
+#get all keys
+print(students.keys())
+
+#iterate over students to get keys
+for k in students:
+    print('key is ', k)
+
+#get billy's attendance
+billy_attendance = students['1']
+print(billy_attendance['attendance'])
+
+#get key:value paris for ben
+ben = students.get('3')
+item = ben.items() #returns sequence of tuples
+for key,val in item:
+    print(key, val)
+
+#get average student grade for all assignments
+grades = []
+student_items = students.items()
+for key,val in student_items:
+    for g in val['grades']:
+        grades.append(g)
+print(round(sum(grades) / len(grades)))
+
+#another way by using list concatenate
+grades_concatenated = []
+student_items = students.items()
+for key,val in student_items:
+    grades_concatenated += val['grades']
+print(round(sum(grades_concatenated) / len(grades)))
+```
+
+### files
+
+open a file: ` open(path_to_file, mode)`
+
+mode: r-read, w-write to the file, a-append to the end fo an already existing file, r+ - read and write to the file at the same time 
+
+open(<my file>, 'r')   如果文件不存在会报错
+
+open(<my_file>, 'w') 会把里面的旧数据全部删除，如果文件不存在会新建一个
+
+open(<my_file>, 'r+')  如果文件不存在会报错,不会抹除旧数据
+
+You can use a stream to read lines from a file
+• read: Reads an entire file as a string
+lines = stream.read() #reads all text in the file
+• readline: Reads a file line by line. Each line is read as a string.
+line = stream.readline() #reads one line in the file
+• readlines: Reads all lines in a file as a list. Each line in the list will be a string.
+lines_lst = stream.readlines() #reads all lines in the file as a list
+• With the above methods, you must remember to close the stream when you’re done
+stream.close() #closes the file object
+
+line = stream.readline()
+
+line.strip() #removes all the withspaces, including \n characters
+
+You can also use a stream to write lines to a file
+• write: Writes a single string to a file
+stream.write(string)
+• writelines: Writes a list of strings to a file
+stream.writelines(list_of_strings)
+• Again, with the above methods, you must remember to close the stream when you’re done
+stream.close()
+
+#### close the file
+
+```python
+stream = open(<my_file>, 'w')
+stream.close()
+
+with open(<my_file>, 'w') as stream # with会自动将文件close
+```
+
+```python
+"""create an open_read_file function that opens a given file, reads each line and prints it to the console"""
+def open_read_file(file):
+    f = open(file, 'r')
+    print(type(f)) # <class '_io.TextIOWrapper'>
+
+    line_number = 0
+    # reads and prints each line in f, while there is a line to read
+    line = f.readline() # read the first line in file
+    while line:
+        print(line, end='')
+        line = f.readline()
+        line_number += 1
+    print('')
+    print('there are', line_number, "lines in the file")
+    f.close()
+
+"""create an open_read_append_new_file function that opens and reads one file, revers the text,
+then appends the reversed text to another file"""
+def open_read_append_new_file(file1, file2):
+    """opens the first file, and reads all line into a list.
+    Reveres the lines, and appends them to the second file."""
+    with open(file1) as fin:
+        lst = fin.readlines()
+        lst.reverse()
+        fout = open(file2, "a")
+        fout.writelines(lst)
+        fout.close()
+
+def open_read_append_same_file(file):
+    f = open(file, 'r+')
+    lst = f.readlines()
+    lst.insert(0, '\n')
+    lst.insert(0, 'here is some new lines')
+    lst.insert(0, '\n')
+
+    f.writelines(lst)
+    f.close()
+
+def open_read_write_new_file(file1, file2):
+    """opens the first file and reads all text as a string.
+    Copies or writes all text to the second file"""
+    with open(file1) as fin:
+        text = fin.read()
+        fout = open(file2, "w")
+        fout.write(text)
+        fout.close()
+
+def main():
+    #open_read_file('gre.txt')
+    #open_read_append_new_file("gre.txt", "gre_out.txt")
+    #open_read_append_same_file("gre.txt")
+    open_read_write_new_file("gre.txt", "gre2.txt")
+
+if __name__ == '__main__':
+    main()
+```
+
+```python
+def import_and_create_dictionary(filename):
+    expenses = {}
+    f = open(filename, "r")
+    lines = f.readlines()
+
+    for line in lines:
+        lst = line.strip().split(",")
+
+        if len(lst) <= 1:
+            continue
+
+        key = lst[0].strip()
+        value = lst[1].strip()
+
+        try:
+            value = float(value)
+            expenses[key] = expenses.get(key, 0) + value
+        except:
+            continue
+
+    f.close()
+
+    return expenses
+
+def main():
+    expenses = import_and_create_dictionary("expenses.txt")
+    print("expenses: ", expenses)
+
+if __name__ == "__main__":
+    main()
+```
+
+The method write() writes from the start of the file, so the old first line in the file will be overwritten by the new line.
+
+The readlines() method reads all lines in the file as a list, and the lines should be stored in a list.
+
+
+
+### homework 4
+
+```python
+"""first cell"""
+def import_and_create_bank(filename):
+    # create an empty bank dictionary
+    bank = {}
+    # read the file
+    f = open(filename, "r")
+    # since every line represents one user, apply readlines() to create a list
+    lines = f.readlines()
+    # iterate over all the lines
+    for line in lines:
+        # strip white spaces and split line into list based on ":"
+        lst = line.strip().split(":")
+        # skip the line with only key or value
+        if len(lst) <= 1:
+            continue
+        # assign name to key and deposit to value
+        key = lst[0].strip()
+        value = lst[1].strip()
+        # skip if the deposit is not number
+        try:
+            value = float(value)
+            bank[key] = bank.get(key, 0) + value
+        except:
+            continue
+    # print(bank)
+    # close the file
+    f.close()
+    return bank
+
+"""second cell"""
+def check_upper(password):
+    for char in password:
+        if char.isupper():
+            return True
+    return False
+
+def check_lower(password):
+    for char in password:
+        if char.islower():
+            return True
+    return False
+
+def check_number(password):
+    for char in password:
+        if char.isdigit():
+            return True
+    return False
+
+def validation(user_accounts, username, password):
+    """test whether the username and the password are both valid.
+    User_accounts is a dictionary contains all user names"""
+    if (username not in user_accounts) and len(password) >= 8 and check_upper(password) and check_lower(password) and check_number(password) and username != password:
+        return True
+    else:
+        return False
+
+
+def signup(user_accounts, log_in, username, password):
+
+    if validation(user_accounts, username, password):
+        user_accounts[username] = password
+        log_in[username] = False
+        return True
+    else:
+        return False
+
+"""third cell"""
+def import_and_create_accounts(filename):
+    # Create an empty user accounts dictionary and an empty login dictionary
+    user_accounts = {}
+    log_in = {}
+    # read the file
+    f = open(filename, "r")
+    # since every line represents one user, apply readlines() to create a list
+    lines = f.readlines()
+    # iterate over all the lines
+    for line in lines:
+        # strip white spaces and split line into list based on ":"
+        lst = line.strip().split("-")
+        # skip the line with only key or value
+        if len(lst) <= 1:
+            continue
+        # assign name to key and deposit to value
+        key = lst[0].strip()
+        value = lst[1].strip()
+        if validation(user_accounts, key, value):
+            user_accounts[key] = value
+            log_in[key] = False
+        else:
+            continue
+    f.close()
+    #print(user_accounts)
+    #print(log_in)
+    return user_accounts, log_in
+
+
+"""fourth cell"""
+def login(user_accounts, log_in, username, password):
+    if (username not in user_accounts) or (password != user_accounts[username]):
+        return False
+    else:
+        log_in[username] = True
+        return True
+
+"""fifth cell"""
+def update(bank, log_in, username, amount):
+    if log_in[username] != True:
+        return False
+
+    if username not in bank:
+        bank[username] = 0
+
+    if amount + bank[username] < 0:
+        return False
+    else:
+        bank[username] += amount
+        return True
+
+"""sixth cell"""
+def transfer(bank, log_in, userA, userB, amount):
+    if userA not in bank or log_in[userA] != True:
+        return False
+    if userB not in log_in:
+        return False
+    if userB not in bank:
+        bank[userB] = 0
+    if bank[userA] - amount < 0:
+        return False
+    else:
+        bank[userA] -= amount
+        bank[userB] += amount
+        return True
+
+"""seventh cell"""
+def change_password(user_accounts, log_in, username, old_password, new_password):
+    if username not in user_accounts:
+        return False
+    elif log_in[username] != True:
+        return False
+    elif user_accounts[username] != old_password:
+        return False
+    elif old_password == new_password:
+        return False
+    elif len(new_password) >= 8 and check_upper(new_password) and check_lower(new_password) and check_number(new_password) and username != new_password:
+        user_accounts[username] = new_password
+        return True
+
+"""eighth cell"""
+def delete_account(user_accounts, log_in, bank, username, password):
+    if username not in user_accounts or password != user_accounts[username] or log_in[username] != True:
+        return False
+    else:
+        del user_accounts[username]
+        del log_in[username]
+        del bank[username]
+        return True
+
+
+
+def main():
+    '''
+    The main function is a skeleton for you to test if your overall programming is working.
+    Note we will not test your main function. It is only for you to run and interact with your program.
+    '''
+
+    bank = import_and_create_bank("bank.txt")
+    user_accounts, log_in = import_and_create_accounts("user.txt")
+
+    while True:
+        # for debugging
+        print('bank:', bank)
+        print('user_accounts:', user_accounts)
+        print('log_in:', log_in)
+        print('')
+        #
+
+        option = input("What do you want to do?  Please enter a numerical option below.\n"
+        "1. login\n"
+        "2. signup\n"
+        "3. change password\n"
+        "4. delete account\n"
+        "5. update amount\n"
+        "6. make a transfer\n"
+        "7. exit\n")
+        if option == "1":
+            username = input("Please input the username\n")
+            password = input("Please input the password\n")
+
+            # add code to login
+            login(user_accounts, log_in, username, password);
+        elif option == "2":
+            username = input("Please input the username\n")
+            password = input("Please input the password\n")
+
+            # add code to signup
+            signup(user_accounts, log_in, username, password)
+        elif option == "3":
+            username = input("Please input the username\n")
+            old_password = input("Please input the old password\n")
+            new_password = input("Please input the new password\n")
+
+            # add code to change password
+            change_password(user_accounts, log_in, username, old_password, new_password)
+        elif option == "4":
+            username = input("Please input the username\n")
+            password = input("Please input the password\n")
+
+            # add code to delete account
+            delete_account(user_accounts, log_in, bank, username, password)
+        elif option == "5":
+            username = input("Please input the username\n")
+            amount = input("Please input the amount\n")
+            try:
+                amount = float(amount)
+
+                # add code to update amount
+                update(bank, log_in, username, amount)
+            except:
+                print("The amount is invalid. Please reenter the option\n")
+
+        elif option == "6":
+            userA = input("Please input the user who will be deducted\n")
+            userB = input("Please input the user who will be added\n")
+            amount = input("Please input the amount\n")
+            try:
+                amount = float(amount)
+
+                # add code to transfer amount
+                transfer(bank, log_in, userA, userB, amount)
+            except:
+                print("The amount is invalid. Please re-enter the option.\n")
+        elif option == "7":
+            break;
+        else:
+            print("The option is not valid. Please re-enter the option.\n")
+
+#This will automatically run the main function in your program
+#Don't change this
+if __name__ == '__main__':
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+```
+
+
+
+comment
+
+```python
+def import_and_create_bank(filename):
+    '''
+    This function is used to create a bank dictionary.  The given argument is the filename to load.
+    Every line in the file should be in the following format:
+        key: value
+    The key is a user's name and the value is an amount to update the user's bank account with.  The value should be a number, however, it is possible that there is no value or that the value is an invalid number.
+
+    What you will do:
+    # - Create an empty bank dictionary.
+    - Read in the file.
+    - Add keys and values to the dictionary from the contents of the file.
+    - If the key doesn't exist in the dictionary, create a new key:value pair.
+    - If the key does exist in the dictionary, increment its value with the amount.
+    - You should also handle the following cases:
+    -- When the value is missing or invalid.  If so, ignore that line and don't update the dictionary.
+    -- When the line is completely blank.  Again, ignore that line and don't update the dictionary.
+    -- When there is whitespace at the beginning or end of a line and/or between the name and value on a line.  You
+    should trim any and all whitespace.
+    - Return the bank dictionary from this function.
+
+    For example, here's how your code should handle some specific lines in the file:
+    The 1st line in the file has a name and valid number:
+        Brandon: 5
+    Your code will process this line and add the extracted information to the dictionary.  After it does,
+    the dictionary will look like this:
+        bank = {"Brandon": 5}
+
+    The 2nd line in the file also has a name and valid number:
+        Patrick: 18.9
+    Your code will also process this line and add the extracted information to the dictionary.  After it does,
+    the dictionary will look like this:
+        bank = {"Brandon": 5, "Patrick": 18.9}
+
+    The 3rd line in the file has a name but invalid number:
+        Brandon: xyz
+    Your code will ignore this line and add nothing to the dictionary.  It will still look like this:
+        bank = {"Brandon": 5, "Patrick": 18.9}
+
+    The 4th line in the file has a name but missing number:
+        Jack:
+    Your code will ignore this line and add nothing to the dictionary.  It will still look like this:
+        bank = {"Brandon": 5, "Patrick": 18.9}
+
+    The 5th line in the file is completely blank.
+    Your code will ignore this line and add nothing to the dictionary.  It will still look like this:
+        bank = {"Brandon": 5, "Patrick": 18.9}
+
+    The 8th line in the file has a name and valid number, but with extra whitespace:
+        Brandon:       10
+    Your code will process this line and update the value associated with the existing key ('Brandon') in the dictionary.
+    After it does, the value associated with the key 'Brandon' will be 10:
+        bank = {"Brandon": 15, ...}
+
+    After processing every line in the file, the dictionary will look like this:
+        bank = {"Brandon": 115.5, "Patrick": 18.9, "Sarah": 827.43, "Jack": 45.0, "James": 128.87}
+    Return the dictionary from this function.
+    '''
+        # open file in read mode
+    f = open(filename, "r")
+
+    # get all lines in file as a list
+    lines = f.readlines()
+
+    for line in lines:
+        # strip white spaces from beginning and end of line
+        # split line into list based on ":" separator
+        lst = line.strip().split(":")
+
+        # skip line if it does not have a name
+        if len(lst) <= 1:
+            continue
+
+        key = lst[0].strip()
+        value = lst[1].strip()
+
+        try:
+            value = float(value)
+            bank[key] = bank.get(key, 0) + value
+        except:
+            continue
+
+    f.close()
+    # print(bank)
+    
+    
+    
+    
+    
+    def signup(user_accounts, log_in, username, password):
+    '''
+    This function allows users to sign up.
+    If both username and password meet the requirements:
+    - Updates the username and the corresponding password in the user_accounts dictionary.
+    - Updates the log_in dictionary, setting the value to False.
+    - Returns True.
+
+    If the username and password fail to meet any one of the following requirements, returns False.
+    - The username already exists in the user_accounts.
+    - The password must be at least 8 characters.
+    - The password must contain at least one lowercase character.
+    - The password must contain at least one uppercase character.
+    - The password must contain at least one number.
+    - The username & password cannot be the same.
+
+    For example:
+    - Calling signup(user_accounts, log_in, "Brandon", "123abcABCD") will return False
+    - Calling signup(user_accounts, log_in, "BrandonK", "123ABCD") will return False
+    - Calling signup(user_accounts, log_in, "BrandonK","abcdABCD") will return False
+    - Calling signup(user_accounts, log_in, "BrandonK", "123aABCD") will return True. Then calling
+    signup(user_accounts, log_in, "BrandonK", "123aABCD") again will return False.
+
+    Hint: Think about defining and using a separate valid(password) function that checks the validity of a given password.
+    This will also come in handy when writing the change_password() function.
+    '''
+    
+    def import_and_create_accounts(filename):
+    '''
+    This function is used to create an user accounts dictionary and another login dictionary.  The given argument is the
+    filename to load.
+    Every line in the file should be in the following format:
+      username - password
+    The key is a username and the value is a password.  If the username and password fulfills the requirements,
+    add the username and password into the user accounts dictionary.  To make sure that the password fulfills these
+    requirements, be sure to use the signup function that you wrote above.
+
+    For the login dictionary, the key is the username, and its value indicates whether the user is logged in, or not.
+    Initially, all users are not logged in.
+
+    What you will do:
+    - Create an empty user accounts dictionary and an empty login dictionary.
+    - Read in the file.
+    - If the username and password fulfills the requirements, adds the username and password
+    into the user accounts dictionary, and updates the login dictionary.
+    - You should also handle the following cases:
+    -- When the password is missing.  If so, ignore that line and don't update the dictionaries.
+    -- When there is whitespace at the beginning or end of a line and/or between the name and password on a line.  You
+    should trim any and all whitespace.
+    - Return both the user accounts dictionary and login dictionary from this function.
+
+    For example, here's how your code should handle some specific lines in the file:
+    The 1st line in the file has a name and password:
+      Brandon - brandon123ABC
+    Your code will process this line, and using the signup function, will add the extracted information to the
+    dictionaries.  After it does, the dictionaries will look like this:
+      user_accounts = {"Brandon": "brandon123ABC"}
+      log_in = {"Brandon": False}
+
+    The 2nd line in the file has a name but missing password:
+      Jack
+    Your code will ignore this line.  The dictionaries will still look like this:
+      user_accounts = {"Brandon": "brandon123ABC"}
+      log_in = {"Brandon": False}
+
+    The 3rd line in the file has a name and password:
+      Jack - jac123
+    Your code will process this line, and using the signup function, will not add the extracted information to the
+    dictionaries because the password is invalid.  The dictionaries will still look like this:
+      user_accounts = {"Brandon": "brandon123ABC"}
+      log_in = {"Brandon": False}
+
+    The 4th line in the file has a name and password:
+      Jack - jack123POU
+    Your code will process this line, and using the signup function, will add the extracted information to the
+    dictionaries.  After it does, the dictionaries will look like this:
+      user_accounts = {"Brandon": "brandon123ABC, "Jack": "jack123POU"}
+      log_in = {"Brandon": False, "Jack": False}
+
+    After processing every line in the file, the dictionaries will look like this:
+      user_accounts = {"Brandon": "brandon123ABC, "Jack": "jack123POU", "James": "100jamesABD", "Sarah": "sd896ssfJJH"}
+      log_in = {"Brandon": False, "Jack": False, "James": False, "Sarah": False}
+    Return the dictionaries from this function.
+    '''
+    
+    
+    def login(user_accounts, log_in, username, password):
+    '''
+    This function allows users to log in with their username and password.
+    The user_accounts dictionary stores the username and associated password.
+    The log_in dictionary stores the username and associated log-in status.
+
+    If the username does not exist in user_accounts or the password is incorrect:
+    - Returns False.
+    Otherwise:
+    - Updates the user's log-in status in the log_in dictionary, setting the value to True.
+    - Returns True.
+
+    For example:
+    - Calling login(user_accounts, "Brandon", "123abcAB") will return False
+    - Calling login(user_accounts, "Brandon", "brandon123ABC") will return True
+    '''
+
+    # your code here
+    
+    def update(bank, log_in, username, amount):
+    '''
+    In this function, you will try to update the given user's bank account with the given amount.
+    bank is a dictionary where the key is the username and the value is the user's account balance.
+    log_in is a dictionary where the key is the username and the value is the user's log-in status.
+    amount is the amount to update with, and can either be positive or negative.
+
+    To update the user's account with the amount, the following requirements must be met:
+    - The user exists in log_in and his/her status is True, meaning, the user is logged in.
+
+    If the user doesn't exist in the bank, create the user.
+    - The given amount can not result in a negative balance in the bank account.
+
+    Return True if the user's account was updated.
+
+    For example, if Brandon has 115.50 in his account:
+    - Calling update(bank, log_in, "Brandon", 50) will return False, unless "Brandon" is first logged in.  Then it
+    will return True.  Brandon will then have 165.50 in his account.
+    - Calling update(bank, log_in, "Brandon", -200) will return False because Brandon does not have enough in his
+    account.
+    '''
+
+    # your code here
+    
+    def transfer(bank, log_in, userA, userB, amount):
+    '''
+    In this function, you will try to make a transfer between two user accounts.
+    bank is a dictionary where the key is the username and the value is the user's account balance.
+    log_in is a dictionary where the key is the username and the value is the user's log-in status.
+    amount is the amount to be transferred between user accounts (userA and userB).  amount is always positive.
+
+    What you will do:
+    - Deduct the given amount from userA and add it to userB, which makes a transfer.
+    - You should consider some following cases:
+      - userA must be in the bank and his/her log-in status in log_in must be True.
+      - userB must be in log_in, regardless of log-in status.  userB can be absent in the bank.
+      - No user can have a negative amount in their account. He/she must have a positive or zero balance.
+
+    Return True if a transfer is made.
+
+    For example:
+    - Calling transfer(bank, log_in, "BrandonK", "Jack", 100) will return False
+    - Calling transfer(bank, log_in, "Brandon", "JackC", 100) will return False
+    - After logging "Brandon" in, calling transfer(bank, log_in, "Brandon", "Jack", 10) will return True
+    - Calling transfer(bank, log_in, "Brandon", "Jack", 200) will return False  
+    '''
+
+    # your code here
+    
+    def change_password(user_accounts, log_in, username, old_password, new_password):
+    '''
+    This function allows users to change their password.
+
+    If all of the following requirements are met, changes the password and returns True. Otherwise, returns False.
+    - The username exists in the user_accounts.
+    - The user is logged in (the username is associated with the value True in the log_in dictionary)
+    - The old_password is the user's current password.
+    - The new_password should be different from the old one.
+    - The new_password fulfills the requirement in signup.
+
+    For example:
+    - Calling change_password(user_accounts, log_in, "BrandonK", "123abcABC" ,"123abcABCD") will return False
+    - Calling change_password(user_accounts, log_in, "Brandon", "123abcABCD", "123abcABCDE") will return False
+    - Calling change_password(user_accounts, log_in, "Brandon", "brandon123ABC", "brandon123ABC") will return False
+    - Calling change_password(user_accounts, log_in, "Brandon", "brandon123ABC", c"123abcABCD") will return True
+
+    Hint: Think about defining and using a separate valid(password) function that checks the validity of a given password.
+    This will also come in handy when writing the signup() function.
+    '''
+
+    # your code here
+    
+    
+    def delete_account(user_accounts, log_in, bank, username, password):
+    '''
+    Completely deletes the user from the online banking system.
+    If the user exists in the user_accounts dictionary and the password is correct, and the user 
+    is logged in (the username is associated with the value True in the log_in dictionary):
+    - Deletes the user from the user_accounts dictionary, the log_in dictionary, and the bank dictionary.
+    - Returns True.
+    Otherwise:
+    - Returns False.
+
+    For example:
+    - Calling delete_account(user_accounts, log_in, bank, "BrandonK", "123abcABC") will return False
+    - Calling delete_account(user_accounts, log_in, bank, "Brandon", "123abcABDC") will return False
+    - If you first log "Brandon" in, calling delete_account(user_accounts, log_in, bank, "Brandon", "brandon123ABC")
+    will return True
+    '''
+
+    # your code here
+```
 

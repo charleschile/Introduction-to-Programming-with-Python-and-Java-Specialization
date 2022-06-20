@@ -8,7 +8,7 @@
 2. 下载module resource 时，只要下载handouts就够了、
 3. 把视频中所有出现过的代码，特别是coding demonstration中的，全部自己敲一遍
 4. quiz就是考语文，assignment难度一般，week4的作业主要第二个cell的条件不要看错
-5. 一个星期基本能搞定这个course
+5. 一个星期基本能搞定一个course
 
 ## 单词
 
